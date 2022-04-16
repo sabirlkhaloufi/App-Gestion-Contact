@@ -1,5 +1,4 @@
 // form validation sign up
-
 let formAdd = document.getElementById("formAdd");
 let error = document.querySelectorAll(".valid");
 let valid;
@@ -15,10 +14,8 @@ function validName(Name){
         valid = false;
         error[0].innerHTML = "Name not valid";
         document.getElementById("name").classList.add("border-danger");
-       
     }
 }
-
 function validPhone(Phone){
     let phoneReg = /(\+212|0)([ \-_/]*)(\d[ \-_/]*){9}/;
     if(phoneReg.test(Phone)){
@@ -32,7 +29,6 @@ function validPhone(Phone){
         valid = false;
     }
 }
-
 function validEmail(Email){
     let emailReg = /^(^[a-z][a-zA-Z0-9-_.]+@(gmail|outlook).(com|fr))$/;
     if(emailReg.test(Email)){
@@ -46,7 +42,6 @@ function validEmail(Email){
         valid = false;
     }
 }
-
 function validAdresse(Adresse){
     if(!(pass == conPass)){
         valid = false;
@@ -59,20 +54,16 @@ function validAdresse(Adresse){
         document.getElementById("adresse").classList.remove("border-danger");
     }
 }
-
 formAdd.addEventListener("input",function(){
     let Name = formAdd.Name.value;
     let Phone = formAdd.Phone.value;
     let Email = formAdd.Email.value;
     let Adresse = document.getElementById("");
-    
     validName(Name);
     validPhone(Phone);
     validEmail(Email);
     validAdresse(Adresse);
 });
-
-
 formAdd.addEventListener("submit",(e)=>{
     let Name = formAdd.Name.value;
     let Phone = formAdd.Phone.value;
@@ -81,6 +72,5 @@ formAdd.addEventListener("submit",(e)=>{
     if(Name == "" || Phone == "" || Email == "" || Adresse == "" || valid == false){
         // document.querySelector(".vide-msg").innerHTML = "Please Enter Informations";
         e.preventDefault();
-    }
-    
+    }  
 })

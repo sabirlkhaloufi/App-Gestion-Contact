@@ -11,28 +11,27 @@
     <link rel="stylesheet" href="./Css/bootstrap.css">
 </head>
 <body>
-    <header class="position-sticky top-0 container">
-        <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-            <div class="container-fluid col">
-              <div class="logo col-11">
-                <a class="navbar-brand text-light" href="index.html"><span><i class="fas fa-address-book text-light me-2"></i></span>Contacts</a>
-              </div>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class=" navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column flex-md-row gap-2">
-                  <li class="nav-item">
-                    <a class="nav-link text-light btn btn-primary" href="login.html" tabindex="-1" aria-disabled="true">Login</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-light btn btn-primary" href="sign-up.html" tabindex="-1" aria-disabled="true">Sign_in</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <button class="navbar-toggler position-absolute" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </nav>
-    </header>
+<?php session_start();?>
+<header class="position-sticky top-0 container">
+    <nav class="navbar navbar-expand-lg navbar-light nav-bg">
+        <div class="container-fluid col">
+          <div class="logo col-11">
+            <a class="navbar-brand text-light" href="./index.php"><span><i class="fas fa-address-book text-light me-2"></i></span>Contacts</a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class=" navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column flex-md-row gap-2">
+              <li class="nav-item d-flex align-items-center">
+                <img src="./Assets/img/avatar (1).svg" alt="" width="50">
+                <span class="ms-2"><?php if(isset($_SESSION)){ echo $_SESSION['username']; }?></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="navbar-toggler position-absolute" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+</header>
     <main class="d-flex flex-column">
         <!-- <div class="bar d-flex position- ms-3 gap-2 h-50 bg-primary rounded-3 p-2">
             <span>A</span> <span>B</span> <span>C</span> <span>D</span> <span>E</span> <span>F</span> <span>G</span> <span>H</span> <span>I</span> <span>J</span> <span>K</span> <span>L</span> <span>M</span> <span>N</span> <span>O</span> <span>P</span> <span>Q</span> <span>R</span> <span>S</span> <span>T</span> <span>U</span> <span>V</span> <span>W</span> <span>X</span> <span>Y</span> <span>Z</span> 

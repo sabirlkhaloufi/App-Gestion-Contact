@@ -11,28 +11,7 @@
     <link rel="stylesheet" href="./Css/bootstrap.css">
 </head>
 <body>
-  <header class="position-sticky top-0 container">
-    <nav class="navbar navbar-expand-lg navbar-light nav-bg">
-        <div class="container-fluid col">
-          <div class="logo col-11">
-            <a class="navbar-brand text-light" href="index.html"><span><i class="fas fa-address-book text-light me-2"></i></span>Contacts</a>
-          </div>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class=" navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column flex-md-row gap-2">
-              <li class="nav-item">
-                <a class="nav-link text-light btn btn-primary" href="login.html" tabindex="-1" aria-disabled="true">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-light btn btn-primary" href="sign-up.html" tabindex="-1" aria-disabled="true">Sign_in</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <button class="navbar-toggler position-absolute" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </nav>
-</header>
+<?php include_once"./includes/header.php"; ?>
     
     <div class="d-flex justify-content-center align-items-center mt-4">
     
@@ -40,7 +19,7 @@
             <div class="img">
                 <img src="./Assets/img/login.svg" alt="" width="300" class="d-none d-md-block"> 
             </div>
-            <form action="" class="" id="login">
+            <form action="./includes/main.php" method="POST" class="" id="login">
                 <h4 class="text-center">Login</h4>
                 <p class="vide-msg mt-2 text-center alert-danger border-3 text-danger"></p>
                 <div class="input-group mt-4">
@@ -57,8 +36,8 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                   </div>
-                <button type="submit" class="btn btn-primary mt-3 w-100">Login <i class="fas fa-sign-in"></i></button>
-                <p class="mt-3">No Account  <a href="sign-up.html">Sign up</a> here</p>
+                <button type="submit" name="submitLogin" class="btn btn-primary mt-3 w-100">Login <i class="fas fa-sign-in"></i></button>
+                <p class="mt-3">No Account <a href="./sign-up.php">Sign up</a> here</p>
                 <div class="d-flex justify-content-center gap-2">
                   <button class="btn btn-fb"><i class="fab fa-google me-2"></i>google</button>
                   <button class="btn btn-go"><i class="fab fa-facebook-f me-2"></i>facebook</button>
