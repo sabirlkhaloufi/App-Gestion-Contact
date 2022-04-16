@@ -1,6 +1,6 @@
 // form validation sign up
 
-let formSignUp = document.getElementById("signup");
+let formLogin = document.getElementById("login");
 let error = document.querySelectorAll(".valid");
 let valid;
 
@@ -32,32 +32,22 @@ function validPass(Pass){
     }
 }
 
-function validConPass(pass,conPass){
-    if(!(pass == conPass)){
-        valid = false;
-        error[2].innerHTML = "confirm password not valid";
-        document.getElementById("conpass").classList.add("border-danger");
-    }
-    else{
-        error[2].innerHTML = "";
-        valid = true;
-        document.getElementById("conpass").classList.remove("border-danger");
-    }
-}
-
-formSignUp.addEventListener("input",function(){
-    let userName = formSignUp.username.value;
-    let pass = formSignUp.pass.value;
-    let conPass = formSignUp.conPass.value;
+formLogin.addEventListener("input",function(){
+    let userName = formLogin.username.value;
+    let pass = formLogin.pass.value;
     validName(userName);
     validPass(pass);
-    validConPass(pass,conPass);
 });
 
-formSignUp.addEventListener("submit",(e)=>{
-    let userName = formSignUp.username.value;
-    let pass = formSignUp.pass.value;
-    if(userName == "" || pass == "" || valid==false){
+formLogin.addEventListener("submit",(e)=>{
+    let userName = formLogin.username.value;
+    let pass = formLogin.pass.value;
+    if(userName == "" || pass == ""){
         e.preventDefault();
+        document.querySelector(".vide-msg").innerHTML="Please Enter Your Information";
+    }
+    if(valid == false){
+        e.preventDefault();
+        document.querySelector(".vide-msg").innerHTML="";
     }
 })
