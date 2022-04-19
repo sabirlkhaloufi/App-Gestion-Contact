@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+ <!-- require_once('./setup.php'); ?> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,10 +22,10 @@
             </div>
             <form action="./includes/main.php" method="POST" class="" id="login">
                 <h4 class="text-center">Login</h4>
-                <p class="vide-msg mt-2 text-center alert-danger border-3 text-danger"></p>
+                <p class="vide-msg mt-2 text-center alert-danger border-3 text-danger"><?php if(isset($_GET['error']))echo "username or password not correct"; ?></p>
                 <div class="input-group mt-4">
                     <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" name="username" id="username">
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" name="username" id="username" value="<?php ?>">
                 </div>
                 <p class="valid text-danger"></p>
                 <div class="input-group flex-nowrap mt-4">
@@ -33,7 +34,7 @@
                 </div>
                 <p class="valid text-danger"></p>
                 <div class="mt-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" name="check" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                   </div>
                 <button type="submit" name="submitLogin" class="btn btn-primary mt-3 w-100">Login <i class="fas fa-sign-in"></i></button>

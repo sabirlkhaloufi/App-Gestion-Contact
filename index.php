@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="./Css/style.css">
     <link rel="stylesheet" href="./Css/bootstrap.css">
-    <!-- <i class="fas fa-at"></i> email -->
-    <!-- <i class="fas fa-phone"></i> phone -->
-    <!-- <i class="fas fa-map-marker-alt"></i> adress -->
 </head>
 <body>
   <?php include_once"./includes/header.php"; ?>

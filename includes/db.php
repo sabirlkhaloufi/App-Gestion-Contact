@@ -5,7 +5,7 @@ class DbConnection{
     private $password = '';
     private $database = 'contactlist';
  
-    protected $connection;
+    public $connection;
  
     public function __construct(){
  

@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+<?php 
+    // error_reporting(0);
+    // require_once('./setup.php');
+    // if(isset($_GET['code'])){
+    //   $token = $google->fetchAccessTokenWithAuthCode($_GET['code']);
+    //   $google->setAccessToken($token);
+    //   $service = new Google_Service_Oauth2($google);
+    //   $data = $service->userInfo->get();
+    //   print_r($data);
+    //   $email = $data->email;
+    //   $name = $data->name;
+    //   echo $email;
+    // }
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,10 +33,12 @@
             <a class="navbar-brand text-light" href="./index.php"><span><i class="fas fa-address-book text-light me-2"></i></span>Contacts</a>
           </div>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class=" navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-column flex-md-row gap-2">
+            <ul class=" navbar-nav">
               <li class="nav-item d-flex align-items-center">
-                <img src="./Assets/img/avatar (1).svg" alt="" width="50">
-                <span class="ms-2"><?php if(isset($_SESSION)){ echo $_SESSION['username']; }?></span>
+              <span class="pe-2"><?php if(isset($_SESSION['username'])){ echo $_SESSION['username']; }
+                ?></span>
+                <img src="./Assets/img/avatar (1).svg" alt="" width="50" class="pe-2">
+                <a class="btn btn-primary pe-2" href="./login.php">Logout</a>
               </li>
             </ul>
           </div>
@@ -42,7 +58,7 @@
                 <p class="h3 mb-5"><?php if(isset($_SESSION)){ echo "Welcome"." ".$_SESSION['username'] ." "."!"; }?></p>
                 <img class="" src="./Assets/img/avatar (1).svg" alt="avatar" class="rounded-circle" width="200">
             </div class="">
-            <div class="info d-flex flex-column gap-5 w-50">
+            <div class="info d-flex flex-column gap-5 w-50 contacts">
               <h4 class="text-center">Your profil</h4>
               <table class="table table-hover w-100">
                 <tbody>
@@ -56,19 +72,19 @@
                   </tr>
                   <tr>
                     <th>LastLogin</th>
-                    <td><?php if(isset($_SESSION)){ echo $_SESSION['date']; } ?></td>
+                    <td><?php if(isset($_SESSION)){ echo $_SESSION['date'];} ?></td>
                   </tr>
                 </tbody>
               </table>
               <div class="d-flex gap-1">
               <a class="btn btn-primary" href="./listcontacts.php">contactS</a>
-              <a class="btn btn-primary" href="./index.php">Logout</a>
+              <a class="btn btn-primary" href="./login.php">Logout</a>
               </div>
             </div>
-        </div>
+          </div>
             
         </div>
-        <script src="./Js/main.js"></script>
+        <!-- <script src="./Js/main.js"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
         </script>
     </div>

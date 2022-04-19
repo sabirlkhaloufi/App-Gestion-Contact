@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 /* 
 .nav-bg{
     background-color: rgb(11, 11, 144);
@@ -5,7 +6,7 @@
 
 body {
     background-color: #d9ecf2;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
     background: url(../Assets/img/Web\ 1920\ –\ 1.jpg);
     background-size:cover;
     background-repeat: no-repeat;
@@ -34,6 +35,8 @@ thead {
     color: #eee;
     cursor: pointer
 }
+
+
 
 .table thead th,
 .table td {
@@ -67,6 +70,85 @@ thead {
     left: 30px;
 }
 
-input{
-    /* width: 100px !important; */
+.stat-card {
+	padding: 25px;
+	margin-bottom: 25px;
+	border-radius: 5px;
+	overflow: hidden;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	transition: all 0.2s;
+}
+.stat-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.stat-card__icon-circle {
+	height: 60px;
+	width: 60px;
+	border-radius: 60px;
+	background: rgba(0, 123, 255, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.stat-card__icon-circle i {
+	font-size: 30px;
+	color: #007bff;
+}
+.stat-card__icon.stat-card__icon--success .stat-card__icon-circle {
+	background: rgba(40, 167, 69, 0.2);
+}
+.stat-card__icon.stat-card__icon--success .stat-card__icon-circle i {
+	color: #28a745;
+}
+.stat-card__icon.stat-card__icon--danger .stat-card__icon-circle {
+	background: rgba(220, 53, 69, 0.2);
+}
+.stat-card__icon.stat-card__icon--danger .stat-card__icon-circle i {
+	color: #dc3545;
+}
+.stat-card__icon.stat-card__icon--warning .stat-card__icon-circle {
+	background: rgba(255, 193, 7, 0.2);
+}
+.stat-card__icon.stat-card__icon--warning .stat-card__icon-circle i {
+	color: #ffc107;
+}
+.stat-card__icon.stat-card__icon--primary .stat-card__icon-circle {
+	background: rgba(0, 123, 255, 0.2);
+}
+.stat-card__icon.stat-card__icon--primary .stat-card__icon-circle i {
+	color: #007bff;
+}
+
+/* table dashboard */
+.contacts .table {
+	border-spacing: 0 15px;
+	border-collapse: separate;
+}
+.contacts .table thead tr th,
+.contacts .table thead tr td,
+.contacts .table tbody tr th,
+.contacts .table tbody tr td {
+	vertical-align: middle;
+	border: none;
+}
+.contacts .table tbody tr {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+.contacts .table tbody tr td {
+	background: #fff;
+}
+.contacts .table tbody tr td:nth-child(1) {
+	border-radius: 5px 0 0 5px;
+}
+.contacts .table tbody tr td:nth-last-child(1) {
+	border-radius: 0 5px 5px 0;
+}
+.contacts .user-info__img img{
+	border-radius: 45px;
+	border: 3px solid #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }

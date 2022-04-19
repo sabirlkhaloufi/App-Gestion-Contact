@@ -2,7 +2,7 @@
 let formAdd = document.getElementById("formAdd");
 let error = document.querySelectorAll(".valid");
 let valid;
-console.log(formAdd);
+
 function validName(Name){
     let userNameReg = /^([A-Za-z]{2,8})$/;
     if(userNameReg.test(Name)){
@@ -42,27 +42,13 @@ function validEmail(Email){
         valid = false;
     }
 }
-function validAdresse(Adresse){
-    if(!(pass == conPass)){
-        valid = false;
-        error[3].innerHTML = "confirm password not valid";
-        document.getElementById("adresse").classList.add("border-danger");
-    }
-    else{
-        error[3].innerHTML = "";
-        valid = true;
-        document.getElementById("adresse").classList.remove("border-danger");
-    }
-}
 formAdd.addEventListener("input",function(){
     let Name = formAdd.Name.value;
     let Phone = formAdd.Phone.value;
     let Email = formAdd.Email.value;
-    let Adresse = document.getElementById("");
     validName(Name);
     validPhone(Phone);
     validEmail(Email);
-    validAdresse(Adresse);
 });
 formAdd.addEventListener("submit",(e)=>{
     let Name = formAdd.Name.value;
@@ -73,4 +59,21 @@ formAdd.addEventListener("submit",(e)=>{
         // document.querySelector(".vide-msg").innerHTML = "Please Enter Informations";
         e.preventDefault();
     }  
+})
+
+
+// confirmation delete
+let btnDelete = document.querySelectorAll(".btnDelete");
+let btnConfirm = document.getElementById("btnConfirm");
+let idContact = 0;
+console.log(btnDelete);
+btnDelete.forEach(value => {
+    value.addEventListener("click",()=>{
+        idContact = value.children[0].innerHTML;
+    })
+});
+
+btnConfirm.addEventListener("click",(e)=>{
+    console.log(idContact);
+    window.location.replace(`../../App-Gestion-Contact/includes/main.php?Id=${idContact}`);
 })

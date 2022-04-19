@@ -41,13 +41,13 @@
                 <p class="font-weight-bold h5">Contacts list</p>
     
                 <!-- Button trigger modal -->
-                <div class="div">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Add Contact
-                    </button>
-                    <span>
+                <div class="position-sticky top-0">
+                <span>
                         <i class="fas fa-search"></i>
                     </span>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add Contact
+                    </button>   
                 </div>
                 
       
@@ -60,7 +60,7 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="p-3" id="formAdd">
+                            <form class="p-3" id="formAdd" method="POST" action="./includes/main.php">
                               <p class="vide-msg alert-danger text-center "></p>
                                 <div class="mb-3 d-flex gap-4">
                                   <div class="name">
@@ -79,11 +79,11 @@
                                 <p class="valid text-danger"></p>
                                 <div class="mb-3">
                                     <label for="adresse" class="form-label">Adresse</label> <span class="valid text-danger"></span>
-                                    <textarea class="form-control" name="adresse" id="adresse" cols="10" rows="3" placeholder="Enter Adresse" id="Adresse"></textarea>
+                                    <textarea class="form-control" name="Adresse" id="adresse" cols="10" rows="3" placeholder="Enter Adresse" id="Adresse"></textarea>
                                   </div>
                                 <div class="button">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" name="submit" class="btn btn-primary">Save</button>
+                                    <button type="submit" name="submitContact" class="btn btn-primary">Save</button>
                                 </div>
                               </form>
                         </div>
@@ -91,7 +91,7 @@
                     </div>
                   </div>
             </div>
-        <div class="table-responsive overflow-scroll">
+        <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -102,41 +102,50 @@
                     </tr>
                 </thead>
                 <tbody>
+                  <?php 
+                  include_once('./includes/db.php');
+                  include_once('./includes/contact.php');
+
+                    // echo header("location:../listcontacts.php"); 
+                    $info = Contact::View(0);
+                    foreach($info as $value): ?>
                     <tr class="bg-blue">
                         <td class="pt-2"> <img src="./Assets/img/contacts.svg" class="rounded-circle img-list" alt="">
-                            <div class="pl-lg-5 pl-md-3 pl-1 name">Sabir Lkhaloufi</div>
+                            <div class="pl-lg-5 pl-md-3 pl-1 name"><?php echo $value['Name']?></div>
                         </td>
-                        <td class="pt-3 mt-1">0650043210</td>
-                        <td class="pt-3">sabirkhaloufi@gmail.com</td>
-                        <td class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta archi</td>
+                        <td class="pt-3 mt-1"><?php echo $value['Phone']?></td>
+                        <td class="pt-3"><?php echo $value['Email']?></td>
+                        <td class="pt-3"><?php echo $value['Adresse']?></td>
                         <td class="pt-3">
-                            <i class="fas fa-user-edit"></i>
-                            <i class="fas fa-user-times"></i>
+                            <a href="./update.php?Id=<?php echo $value['IdContact']?>"><i class="fas fa-user-edit" id="update" data_id="<?php echo $value['IdContact']?>"></i></a>
+                           <a class="bg-none btnDelete"><span class="idContact d-none"><?php echo $value['IdContact'];?></span><i class="fas fa-user-times" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i></a>
                         </td>
                     </tr>
                     <tr id="spacing-row">
                         <td></td>
                     </tr>
-                    <tr class="bg-blue">
-                        <td class="pt-2"> <img src="./Assets/img/contacts.svg " class="rounded-circle img-list" alt="">
-                            <div class="pl-lg-5 pl-md-3 pl-1 name">Abdelaziz afrkla</div>
-                        </td>
-                        <td class="pt-3">06543212</td>
-                        <td class="pt-3">abdelaziz@gmail.com</td>
-                        <td class="pt-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta archi</td>
-                        <td class="pt-3">
-                            <i class="fas fa-user-edit"></i>
-                            <i class="fas fa-user-times"></i>
-                        </td>
-                    </tr>
+                    <?php  endforeach; ?>
                 </tbody>
             </table>
-        </div>
-    
-        </div>
+<!-- Modal delete -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body"> if you delete
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" id="btnConfirm" class="btn btn-danger">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
     </main>
-
-    <script src="./Js/addContactValidation.js"></script>
+    <script src="./Js/contacts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
         </script>
 </body>
