@@ -63,6 +63,18 @@
                 header('location:../sign-up.php?error=this compte');   
             } 
         }
+
+        function Delete($id){
+            $con = $this->connection;
+            $stmt = $con ->prepare("DELETE FROM Users WHERE IdUser=$id");
+            $stmt -> execute();
+            header("location:../sign-up.php"); 
+        }
+        function Logout(){
+            session_unset();
+            echo $_SESSION['username'];
+            header("location:../login.php"); 
+        }
         
     }    
 ?>

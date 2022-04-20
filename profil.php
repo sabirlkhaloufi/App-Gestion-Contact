@@ -38,7 +38,7 @@
               <span class="pe-2"><?php if(isset($_SESSION['username'])){ echo $_SESSION['username']; }
                 ?></span>
                 <img src="./Assets/img/avatar (1).svg" alt="" width="50" class="pe-2">
-                <a class="btn btn-primary pe-2" href="./login.php">Logout</a>
+                <a class="btn btn-primary pe-2" href="./includes/main.php?Logout=true">Logout</a>
               </li>
             </ul>
           </div>
@@ -77,8 +77,9 @@
                 </tbody>
               </table>
               <div class="d-flex gap-1">
-              <a class="btn btn-primary" href="./listcontacts.php">contactS</a>
-              <a class="btn btn-primary" href="./login.php">Logout</a>
+              <a class="btn btn-primary" href="./listcontacts.php">contact</a>
+              <a class="btn btn-primary" href="./includes/main.php?Logout=true">Logout</a>
+              <a class="btn btn-danger" href="./includes/main.php?IdUser=<?php echo $_SESSION['IdUser'];?>">Delete</a>
               </div>
             </div>
           </div>

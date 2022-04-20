@@ -41,4 +41,13 @@
         $contact = new Contact();
         $contact->Delete($id);  
     }
+    if(isset($_GET['IdUser'])){
+        $id = $_GET['IdUser'];
+        $contact = new User();
+        $contact->Delete($id);
+    }
+    if(isset($_GET['Logout'])){
+        $contact = new User();
+        $contact->Logout(); 
+    }
 ?>

@@ -91,7 +91,7 @@
                     </div>
                   </div>
             </div>
-        <div class="table-responsive">
+        <div class="table-responsive overflow-scroll vh-100">
             <table class="table">
                 <thead>
                     <tr>
@@ -117,8 +117,8 @@
                         <td class="pt-3"><?php echo $value['Email']?></td>
                         <td class="pt-3"><?php echo $value['Adresse']?></td>
                         <td class="pt-3">
-                            <a href="./update.php?Id=<?php echo $value['IdContact']?>"><i class="fas fa-user-edit" id="update" data_id="<?php echo $value['IdContact']?>"></i></a>
-                           <a class="bg-none btnDelete"><span class="idContact d-none"><?php echo $value['IdContact'];?></span><i class="fas fa-user-times" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i></a>
+                            <a class="text-success" href="./update.php?Id=<?php echo $value['IdContact']?>"><i class="fas fa-user-edit h5" id="update"></i></a>
+                           <a class="text-danger btnDelete"><span class="idContact d-none"><?php echo $value['IdContact'];?></span><i class="fas fa-user-times h5" data-bs-toggle="modal" data-bs-target="#exampleModal2"></i></a>
                         </td>
                     </tr>
                     <tr id="spacing-row">
